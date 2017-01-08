@@ -22,3 +22,5 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+
+* See live : https://rails-sample-app-oa.herokuapp.com/
