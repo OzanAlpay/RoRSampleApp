@@ -1,1 +1,4 @@
-#Empty
+vesemir:
+  name: Vesemir
+  email: vesemir@wolfschool.com
+  password_digest: <%= User.digest('password') %>
