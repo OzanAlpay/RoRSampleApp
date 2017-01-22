@@ -2,3 +2,9 @@ vesemir:
   name: Vesemir
   email: vesemir@wolfschool.com
   password_digest: <%= User.digest('password') %>
+  admin: true
+  
+lambert:
+  name: lambert
+  email: lambert@wolfschool.com
+  password_digest: <%= User.digest('password') %>

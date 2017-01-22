@@ -57,28 +57,16 @@ class UsersLoginTest < ActionDispatch::IntegrationTest
     delete logout_path
     follow_redirect!
   end
-  
+
   test "login with remember" do
     log_in_as(@user, remember_me: '1')
-=begin
-    puts "Cookies user id is = ", cookies['user_id']
-    puts "User id = ", assigns(:user).id
-    puts "Cookies remember token is = ", cookies['remember_token']
-    puts "Cookies remember token after digest op is = ", User.digest(cookies['remember_token'])
-    rem_dig = assigns(:user).remember_digest
-    rem_tok = assigns(:user).remember_token
-    puts "User remember_digest = ", rem_dig
-    puts "User remember_digest digest = " , User.digest(rem_dig)
-    puts "User remember_token = " , rem_tok
-    puts "User remember_token digest = ", User.digest(rem_tok)
-=end
-    assert_equal User.digest(cookies['remember_token']), assigns(:user).remember_digest
+    assert_equal cookies['remember_token'], assigns(:user).remember_token
   end
   
   test "login without remember" do
     log_in_as(@user, remember_me: '1')
     log_in_as(@user, remember_me: '0')
-    assert_nil cookies['remember_token']
+    assert_empty cookies['remember_token']
   end
-  
+
 end
